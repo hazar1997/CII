@@ -14,8 +14,8 @@
     <name>achat</name>
     <description>Projet pour le module DevOps</description>
     <properties>
-        <java.version>11.0.16.1</java.version>
-        <maven-jar-plugin.version>3.1.0</maven-jar-plugin.version>
+        <java.version>1.8</java.version>
+        <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
     </properties>
     <dependencies>
         <dependency>
@@ -85,5 +85,13 @@
 
         </plugins>
     </build>
+
+	<distributionManagement>
+    		<repository>
+        		<id> deploymentRepo</id>
+        		<name>admin</name>
+        		<url>http://192.168.56.51:8081/repository/maven-releases/</url>
+    		</repository>
+   	</distributionManagement>
 
 </project>
