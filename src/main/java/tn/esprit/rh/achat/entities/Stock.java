@@ -37,4 +37,9 @@ public class Stock implements Serializable {
 		this.qteMin = qteMin;
 	}
 
+	public Stock(long l, String testMock1, int i, int i1) {
+	}
+	//public Stock(long l ,String testMock1,int i ,int i1){
+
+ //}
 }
