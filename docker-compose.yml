@@ -9,7 +9,7 @@ services:
       - MYSQL_DATABASE= achatdb
       - MYSQL_ROOT_PASSWORD=MYSQL_ALLOW_EMPTY_PASSWORD
  spring_app:
-   image: https://hub.docker.com/repository/docker/hazar123/achat
+   image: hazar123/achat:1.0
    container_name: achatspring
    restart: on-failure
    ports:
