@@ -1,0 +1,40 @@
+version: "3.3"
+services:
+  mysqldb:
+    container_name: mysqldb
+    image: mysql:8
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: achatdb
+      MYSQL_USER: oumaima
+      MYSQL_PASSWORD: root
+    volumes:
+      - /home/mysql/data:/etc/mysql/mysql:rw
+    networks:
+      - spring-mysql
+
+  spring_achat:
+    image: oumaima12/spring_mysql:latest
+    container_name: achat_springboot
+    restart: on-failure
+    ports:
+      - "8089:8089"
+    depends_on:
+      - "mysqldb"
+    networks:
+      - spring-mysql
+
+  angular_achat:
+    image: oumaima12/angular_achat
+    container_name: achat_angular
+    restart: on-failure
+    ports:
+      - "80:80"
+    networks:
+      - spring-mysql
+
+networks:
+  spring-mysql:
